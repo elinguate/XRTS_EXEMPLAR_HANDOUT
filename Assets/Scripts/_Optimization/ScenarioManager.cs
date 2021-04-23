@@ -241,8 +241,11 @@ public class ScenarioManager : MonoBehaviour
             }
 
             m_EnvironmentGenerator.CalculateSprites();
-            m_PathfindingGrid.ClearPathfindingNodes(); // <--- REMOVE
-            m_PathfindingGrid.GeneratePathfindingNodes(); // <--- REMOVE
+            if (m_PathfindingGrid) // <--- REMOVE
+            {
+                m_PathfindingGrid.ClearPathfindingNodes(); // <--- REMOVE
+                m_PathfindingGrid.GeneratePathfindingNodes(); // <--- REMOVE
+            }
             m_StatsManager.ResetStats();
 
             m_StatsManager.SetupScenario(chosenScenario);
